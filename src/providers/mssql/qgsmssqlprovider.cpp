@@ -808,6 +808,9 @@ bool QgsMssqlProvider::addFeatures( QgsFeatureList & flist )
 
     for ( int i = 0; i < attrs.count(); ++i )
     {
+      if ( i >= mAttributeFields.count() )
+        break;
+
       QgsField fld = mAttributeFields.at( i );
 
       if ( fld.typeName().endsWith( " identity", Qt::CaseInsensitive ) )
@@ -879,6 +882,9 @@ bool QgsMssqlProvider::addFeatures( QgsFeatureList & flist )
 
     for ( int i = 0; i < attrs.count(); ++i )
     {
+      if ( i >= mAttributeFields.count() )
+        break;
+
       QgsField fld = mAttributeFields.at( i );
 
       if ( fld.typeName().endsWith( " identity", Qt::CaseInsensitive ) )
